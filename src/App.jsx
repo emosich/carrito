@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Products } from "./components/Products.jsx";
 import { products as initialProducts } from "./mocks/products";
+import { Header } from "./components/Header.jsx";
 
 function App() {
   const [products] = useState(initialProducts)
   const [filters, setFilters] = useState ({
-    category: 'laptops',
+    category: 'all',
     minPrince: 0
   })
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <>
-      <h1>Carrito de compras</h1>
+      <Header changeFilters={setFilters} />
       <Products products={filteredProducts} />
     </>
   );
